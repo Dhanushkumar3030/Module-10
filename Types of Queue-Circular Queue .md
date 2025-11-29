@@ -35,37 +35,34 @@ class CircularQueue:
         self.front = -1
         self.rear = -1
     
-    def is_full(self):
-        return (self.rear + 1) % self.size == self.front
-    
-    def is_empty(self):
-        return self.front == -1
-    
-    def enqueue(self, data):
-        if self.is_full():
-            print("Queue is full. Cannot enqueue", data)
-            return False
-        if self.is_empty():
+    def enqueue(self, value):
+        if (self.rear + 1) % self.size == self.front:
+            return False  
+        
+        if self.front == -1:  
             self.front = 0
+        
         self.rear = (self.rear + 1) % self.size
-        self.queue[self.rear] = data
+        self.queue[self.rear] = value
         return True
     
     def dequeue(self):
-        if self.is_empty():
-            print("Queue is empty. Cannot dequeue.")
+        if self.front == -1:
             return None
-        data = self.queue[self.front]
+        
+        value = self.queue[self.front]
+        self.queue[self.front] = None
+        
         if self.front == self.rear:
             self.front = -1
             self.rear = -1
         else:
             self.front = (self.front + 1) % self.size
-        return data
+        
+        return value
     
     def display(self):
-        if self.is_empty():
-            print("Queue is empty.")
+        if self.front == -1:
             return []
         elements = []
         i = self.front
@@ -77,30 +74,20 @@ class CircularQueue:
         return elements
 
 cq = CircularQueue()
-print("Enter 3 values to enqueue:")
+
 for _ in range(3):
-    val = input("Value: ")
+    val = int(input())
     cq.enqueue(val)
 
-print("\nRemoving 3 values from the queue:")
-removed_values = []
+removed = []
 for _ in range(3):
-    removed = cq.dequeue()
-    if removed is not None:
-        removed_values.append(removed)
+    removed.append(cq.dequeue())
 
-print("Removed values:", removed_values)
-
+print(*removed)
 ```
+
 ### Output:
-```
-Enter 3 values to enqueue:
-Value: 10
-Value: 20
-Value: 30
+<img width="499" height="457" alt="446248445-0f087c24-97de-4ba3-bbcb-765204d73be3" src="https://github.com/user-attachments/assets/4dfbd57b-ff96-4018-914e-53f00e00bd68" />
 
-Removing 3 values from the queue:
-Removed values: ['10', '20', '30']
-```
 ## Result:
-Hence implementation of a Circular Queue id done.
+Thus, the program is verified successfully.
