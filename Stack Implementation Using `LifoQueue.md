@@ -24,36 +24,18 @@ To create a Python program that:
 ## Program
 ```
 from queue import LifoQueue
-stack = LifoQueue(maxsize=7)
-n = int(input("Enter number of elements to push (max 7): "))
+stack=LifoQueue(maxsize=7)
+
+n=int(input())
 for i in range(n):
-    if not stack.full():
-        val = input(f"Enter value {i+1}: ")
-        stack.put(val)
-    else:
-        print("Stack is full! Cannot add more elements.")
-        break
-print("Is the stack full?", stack.full())
-print("\nStack elements in LIFO order:")
-while not stack.empty():
+    stack.put(input())
+print(stack.full())
+for i in range(n):
     print(stack.get())
 ```
-## 🧪 Sample Input and Output
-```
-Enter number of elements to push (max 7): 5
-Enter value 1: apple
-Enter value 2: banana
-Enter value 3: cherry
-Enter value 4: date
-Enter value 5: elderberry
-Is the stack full? False
 
-Stack elements in LIFO order:
-elderberry
-date
-cherry
-banana
-apple
-```
+## 🧪 Sample Input and Output
+<img width="411" height="468" alt="446245828-8d592eb5-56ac-401e-9fda-c44c7aa2cea6" src="https://github.com/user-attachments/assets/a213d7d2-4064-4a1c-b91e-b52581a7eb52" />
+
 ## Result:
-Hence Stack Implementation using LifoQueue with LIFO behavior is done.
+Thus, the program is verified successfully.
