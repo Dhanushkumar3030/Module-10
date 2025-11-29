@@ -24,30 +24,19 @@ To write a Python program to:
 ## 🧪 Program: 
 ```
 q = []
-n = int(input("Enter the number of elements to add to the queue: "))
-print("Enter the elements:")
+n = int(input())
 for _ in range(n):
     val = int(input())
     q.append(val)
-if len(q) >= 2:
-    q.pop(0)
-    q.pop(0)
-elif len(q) == 1:
-    q.pop(0)
+
+q.pop(0)  
+q.pop(0)  
+
 q.sort(reverse=True)
-print("Remaining elements in descending order:", q)
+print(*q)
 ```
 ### Output:
-```
-Enter the number of elements to add to the queue: 5
-Enter the elements:
-10
-30
-5
-20
-15
-Remaining elements in descending order: [20, 15, 5]
-```
-## Result:
-Hence displayed values in descending order.
+<img width="487" height="535" alt="446244122-cf686b24-d64e-4bcb-a664-7315af08d0fb" src="https://github.com/user-attachments/assets/ae570728-f5c1-4198-b5b7-a8465060ae44" />
 
+## Result:
+Thus, the program is verified successfully.
